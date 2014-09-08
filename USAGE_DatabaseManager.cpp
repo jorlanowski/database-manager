@@ -11,7 +11,6 @@ namespace SQLiteNamespace
         std::string prepareInsert( T& ) { return std::string(); }
     };
 
-
     class ErrorHandler
     {
     };
@@ -36,6 +35,7 @@ int main()
     DatabaseManager<DatabaseType, Preparer, ErrorHandler> dbm;
     DatabaseConfiguration configuration( "FILE_NAME" );
 
+    dbm.configure( configuration );
 //    dbm.initialize( configuration );
 
     myObject.id = 1;

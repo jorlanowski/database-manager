@@ -10,7 +10,7 @@ SQLite::~SQLite()
     }
 }
 
-void SQLite::configure( Configuration& aConfiguration )
+void SQLite::configure( SQLiteConfiguration& aConfiguration )
 {
     int lStatus;
     // TODO: check if mDb is not already initialized

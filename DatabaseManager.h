@@ -32,3 +32,9 @@ bool DatabaseManager< DBDriver, DBPreparer, ErrorHandlePolicy >::add( T& x )
 {
     DBDriver::execute( DBPreparer::prepareInsert( x ) );
 }
+
+template< typename DBDriver, typename DBPreparer, typename ErrorHandlePolicy >
+bool DatabaseManager< DBDriver, DBPreparer, ErrorHandlePolicy >::configure( Configuration& aConfiguration )
+{
+    DBDriver::configure( aConfiguration );
+}
