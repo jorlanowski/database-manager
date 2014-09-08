@@ -5,13 +5,6 @@ struct Filter
 {
 };
 
-struct DummyDBDriver
-{
-    struct Configuration
-    {
-    };
-};
-
 template< typename DBDriver, typename DBPreparer, typename ErrorHandlePolicy >
 class DatabaseManager : public DBDriver, public DBPreparer, public ErrorHandlePolicy
 {
@@ -37,5 +30,5 @@ template< typename DBDriver, typename DBPreparer, typename ErrorHandlePolicy >
 template< typename T >
 bool DatabaseManager< DBDriver, DBPreparer, ErrorHandlePolicy >::add( T& x )
 {
-    DBDriver::insert( DBPreparer::prepare( x ) );
+    DBDriver::execute( DBPreparer::prepareInsert( x ) );
 }

@@ -1,25 +1,14 @@
 #include "DatabaseManager.h"
+#include "drivers/SQLite.h"
 #include <string>
 
-namespace SQLite
+namespace SQLiteNamespace
 {
-    class SQLite
-    {
-    public:
-        class Configuration
-        {
-        public:
-            Configuration(){}
-            Configuration( const char* ) {} 
-        };
-        void insert( std::string ){}
-    };
-
     class Preparer
     {
     public:
         template< typename T >
-        std::string prepare( T& ) { return std::string(); }
+        std::string prepareInsert( T& ) { return std::string(); }
     };
 
 
@@ -35,10 +24,10 @@ struct MyObject
     char* name;
 };
 
-typedef SQLite::SQLite DatabaseType;
-typedef SQLite::Preparer Preparer;
-typedef SQLite::SQLite::Configuration DatabaseConfiguration;
-typedef SQLite::ErrorHandler ErrorHandler;
+typedef SQLite DatabaseType;
+typedef SQLiteNamespace::Preparer Preparer;
+typedef SQLite::Configuration DatabaseConfiguration;
+typedef SQLiteNamespace::ErrorHandler ErrorHandler;
 int main()
 {
     MyObject myObject;
